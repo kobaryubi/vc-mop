@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	// "github.com/kobaryubi/vc-mop/blockchain"
 	"rsc.io/quote"
 )
 
