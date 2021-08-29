@@ -1,4 +1,4 @@
-module github.com/vc-mop
+module github.com/kobaryubi/vc-mop
 
 go 1.17
 
