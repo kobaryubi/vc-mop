@@ -1,2 +1,7 @@
+# extension-less files 
+*
+!*/
+!*.*
+
 # binaries
 *.exe
