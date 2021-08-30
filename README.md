@@ -14,4 +14,11 @@
 
 
 ## golang.org/x/tools/cmd
-`go get golang.org/x/tools/cmd/...`
+`go get golang.org/x/tools/cmd/...`  
+`go get golang.org/x/lint/golint`  
+
+## cmds
+`go mod tidy`
+
+`go vet ./...`  
+`golint -set_exit_status ./...`
