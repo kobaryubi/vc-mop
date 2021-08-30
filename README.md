@@ -11,3 +11,7 @@
 `export GOPATH=$(go env GOPATH)`
 
 `export PATH=$PATH:$GOPATH/bin`
+
+
+## golang.org/x/tools/cmd
+`go get golang.org/x/tools/cmd/...`
