@@ -9,18 +9,22 @@ import (
 // HTTPSender HTTPリクエスト送信用の定義
 type HTTPSender struct {
 	host   string
+	method string
 	client *http.Client
 }
 
 // NewHTTPSender HTTPプロトコルの通信クライアントを作成する関数
-func NewHTTPSender(host string) *HTTPSender {
-	httpSender := &HTTPSender{host, &http.Client{}}
+func NewHTTPSender(host string, method string) *HTTPSender {
+	httpSender := &HTTPSender{host, method, &http.Client{}}
 	return httpSender
 }
 
 // Send 送信用の関数
 func (httpSender *HTTPSender) Send(data []byte) (body []byte, err error) {
-	req, err := http.NewRequest("GET", httpSender.host, bytes.NewBuffer(data))
+	req, err := http.NewRequest(httpSender.method, httpSender.host, bytes.NewBuffer(data))
+	if httpSender.method == "POST" {
+		req.Header.Set("Content-Type", "application/json")
+	}
 	if err != nil {
 		return nil, err
 	}
