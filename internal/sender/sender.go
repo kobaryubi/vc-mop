@@ -18,7 +18,8 @@ func NewHTTPSender(host string) *HTTPSender {
 	return httpSender
 }
 
-func (httpSender *HTTPSender) send(data []byte) (body []byte, err error) {
+// Send 送信用の関数
+func (httpSender *HTTPSender) Send(data []byte) (body []byte, err error) {
 	req, err := http.NewRequest("GET", httpSender.host, bytes.NewBuffer(data))
 	if err != nil {
 		return nil, err
