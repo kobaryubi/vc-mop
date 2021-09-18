@@ -17,6 +17,9 @@
 `go get golang.org/x/tools/cmd/...`  
 `go get golang.org/x/lint/golint`  
 
+## packages
+`go get github.com/joho/godotenv`  
+
 ## cmds
 `go mod tidy`
 
