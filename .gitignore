@@ -5,3 +5,6 @@
 
 # binaries
 *.exe
+
+# env
+.env

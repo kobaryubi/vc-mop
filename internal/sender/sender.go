@@ -20,11 +20,12 @@ func NewHTTPSender(host string, method string) *HTTPSender {
 }
 
 // Send 送信用の関数
-func (httpSender *HTTPSender) Send(data []byte) (body []byte, err error) {
+func (httpSender *HTTPSender) Send(data []byte, header map[string]string) (body []byte, err error) {
 	req, err := http.NewRequest(httpSender.method, httpSender.host, bytes.NewBuffer(data))
-	if httpSender.method == "POST" {
-		req.Header.Set("Content-Type", "application/json")
+	for key, value := range header {
+		req.Header.Set(key, value)
 	}
+
 	if err != nil {
 		return nil, err
 	}
