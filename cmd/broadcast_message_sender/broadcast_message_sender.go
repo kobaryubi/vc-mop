@@ -7,16 +7,15 @@ import (
 )
 
 func main() {
-	message := make(map[string]string, 2)
-	message["type"] = "text"
-	message["text"] = "Hello"
+	message := line.NewMessage("Hello")
+	messages := make([]line.Message, 0)
+	messages = append(messages, message)
 
-	params := line.PostBroadcastMessageParams{
-		Messages:             make([]map[string]string, 1),
-		NotificationDisabled: true,
-	}
-	params.Messages = append(params.Messages, message)
+	broadcastMessageParams := new(line.BroadcastMessageParams)
+	broadcastMessageParams.Messages = messages
+	broadcastMessageParams.NotificationDisabled = false
 
-	lineApiClient := line.NewClient()
-	fmt.Println(lineApiClient)
+	apiClient := line.NewAPIClient()
+	byteArray, _ := apiClient.SendBroadcastMessage(broadcastMessageParams)
+	fmt.Println(string(byteArray))
 }
