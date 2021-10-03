@@ -19,6 +19,7 @@
 
 ## packages
 `go get github.com/joho/godotenv`  
+`go get github.com/lib/pq`  
 
 ## cmds
 `go mod tidy`
@@ -32,3 +33,9 @@
 - Category: 個人
 - Subcategory: 個人（IT・コンピュータ）
 - Email address: kobaryubi6@gmail.com
+
+## PostgreSQL
+`/usr/local/bin/brew install postgresql@12`  
+`echo 'export PATH="/usr/local/opt/postgresql@12/bin:$PATH"' >> ~/.zshrc`  
+`postgres -D /usr/local/var/postgresql@12`  
+`psql -h localhost -p 5432 -U kobayashimasahiko -d postgres`  
